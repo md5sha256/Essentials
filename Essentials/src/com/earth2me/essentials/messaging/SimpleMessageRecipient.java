@@ -4,6 +4,7 @@ import com.earth2me.essentials.IEssentials;
 import com.earth2me.essentials.IUser;
 import com.earth2me.essentials.User;
 import net.ess3.api.events.PrivateMessagePreSendEvent;
+import org.bukkit.entity.Player;
 
 import java.lang.ref.WeakReference;
 
@@ -104,9 +105,9 @@ public class SimpleMessageRecipient implements IMessageRecipient {
                             && !onlineUser.equals(senderUser)
                             && !onlineUser.equals(recipient)) {
                             if (senderUser.isMuted() && ess.getSettings().getSocialSpyListenMutedPlayers()) {
-                                onlineUser.sendMessage(tl("socialMutedSpyPrefix") + tl("socialSpyMsgFormat", getDisplayName(), recipient.getDisplayName(), message));
+                                onlineUser.sendMessage(tl("socialMutedSpyPrefix") + tl("socialSpyMsgFormat", getName(), recipient.getName(), message));
                             } else {
-                                onlineUser.sendMessage(tl("socialSpyPrefix") + tl("socialSpyMsgFormat", getDisplayName(), recipient.getDisplayName(), message));
+                                onlineUser.sendMessage(tl("socialSpyPrefix") + tl("socialSpyMsgFormat", getName(), recipient.getName(), message));
                             }
                         }
                     }
